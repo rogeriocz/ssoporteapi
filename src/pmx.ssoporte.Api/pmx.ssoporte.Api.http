@@ -1,0 +1,6 @@
+@pmx.ssoporte.Api_HostAddress = http://localhost:5019
+
+GET {{pmx.ssoporte.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
