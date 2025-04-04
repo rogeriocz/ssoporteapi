@@ -23,5 +23,16 @@ namespace pmx.ssoporte.Api.Controllers
             return Ok(medications);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetMedicationById(int id)
+        {
+            var medication = await _medicationRepository.GetMedicationByIdAsync(id);
+            if (medication == null)
+            {
+                return NotFound();
+            }
+            return Ok(medication);
+        }
+
     }
 }

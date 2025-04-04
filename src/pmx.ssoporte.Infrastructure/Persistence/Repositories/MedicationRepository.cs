@@ -28,5 +28,14 @@ namespace pmx.ssoporte.Infrastructure.Persistence.Repositories
                 return await dbConnection.QueryAsync<Medication>(sqlQuery);
             }
         }
+
+        public async Task<Medication> GetMedicationByIdAsync(int id)
+        {
+            using (IDbConnection dbConnection = _context.CreateConnection())
+            {
+                string sqlQuery = "SELECT * FROM Medications WHERE Id = @Id";
+                return await dbConnection.QueryFirstOrDefaultAsync<Medication>(sqlQuery, new { Id = id });
+            }
+        }
     }
 }
